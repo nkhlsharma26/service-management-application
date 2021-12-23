@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 style="text-align: center;">Aid List</h2>
+  </div>
+  <div class="panel-body" style="text-align: center;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{pageHeader}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aid of aids" (click)="navigate(aid)">
+          <td>{{aid.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="showSpinner" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only" id="loading"></span>
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <button (click)="goToAddAid('addAid')" [disabled]="addAidButtonDisabled" class="btn btn-success"
+      style="margin-top: 10px;">Add New Aid</button>
+  </div>
+</div>

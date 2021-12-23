@@ -1,0 +1,32 @@
+<h3 style="text-align: center;">Add House</h3>
+<div [hidden]="submitted" class="scroll">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">User Id<span style="color:#ff0000">*</span>:</label>
+      <input type="text" class="form-control" id="userId" required [(ngModel)]="user.userId" name="userId" readonly>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="name">House Number<span style="color:#ff0000">*</span></label>
+      <input type="text" class="form-control" id="houseNo" [(ngModel)]="house.houseNo" name="houseNo" required>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="name">Address<span style="color:#ff0000">*</span></label>
+      <input type="text" class="form-control" id="address" [(ngModel)]="house.address" name="address" required>
+    </div>
+    <br>
+    <div [hidden]="isValid">
+      <p style="background-color: rgb(233, 95, 95); text-align: center;">{{validationMessage}}</p>
+    </div>
+    <br>
+    <div style="text-align: center;">
+      <button type="submit" class="btn btn-success">Add House</button>
+    </div>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newHouse()">Add</button> -->
+</div>

@@ -1,0 +1,31 @@
+<h1 class="text-center">Payment Alerts</h1>
+<div *ngFor="let alert of missedAlerts">
+
+      <div *ngIf="alert" class="alert alert-danger" role="alert">
+            <strong>{{alert.message}}</strong>
+            <div style="float: right;">
+
+                  <span (click)="closeMissed(alert)">x</span>
+
+            </div>
+
+      </div>
+</div>
+
+<div *ngFor="let wAlert of warningAlert">
+
+      <div *ngIf="wAlert" class="alert alert-warning" role="alert">
+            <strong>{{wAlert.message}}</strong>
+            <div style="float: right;">
+
+                  <span (click)="closeWarning(wAlert)">x</span>
+
+            </div>
+
+      </div>
+</div>
+<div *ngIf="missedAlerts.length===0 && warningAlert.length===0">
+      <div class="alert alert-info" role="alert">
+            <strong>You do not any payment alerts!!!</strong>
+      </div>
+</div>

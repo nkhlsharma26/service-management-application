@@ -1,0 +1,25 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.nikhil.domestic_service_management"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.nikhil.domestic_service_management"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.nikhil.domestic_service_management"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.nikhil.domestic_service_management"
+    }
+  }
+}

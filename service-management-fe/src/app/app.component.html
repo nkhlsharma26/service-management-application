@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="backgroundDiv">
+  <div id="headerDiv" class="header" style="text-align: left;">
+    <a (click)="home()" class="logo">{{title}}</a>
+    <span (click)="goToProfile()" id="profilePic" class="dot"></span>
+  </div>
+
+  <div class="container">
+    <hr>
+    <div style="margin-bottom: 4px">
+      <table style="width:100%">
+        <tr>
+          <td id="homeButton" (click)="home()" style="text-align: center; width: 50%;border-radius: 4px;
+          overflow: hidden;"><i class="fa fa-home fa-3x"></i>
+          </td>
+          <td id="paymentsButton" (click)="checkPayments()" style="text-align: center; width: 50%;border-radius: 4px;
+          overflow: hidden;"><i class="fa fa-rupee fa-3x"></i>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+    <div class="card" style="background: #BFBAB5;">
+      <div class="card-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <span>*For personal use only</span>
+    </div>
+  </footer>
+</div>

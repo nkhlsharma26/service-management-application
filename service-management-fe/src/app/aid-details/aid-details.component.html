@@ -1,0 +1,94 @@
+<div id="aidDetail">
+  <h2 style="text-align: center;">{{pageTitle}}</h2>
+
+  <hr />
+  <div *ngIf="aid">
+    <!--<form (ngSubmit)="onSubmit()">-->
+    <div>
+      <label><b>AidId: </b></label> {{aid.aidId}}
+    </div>
+    <hr />
+    <div>
+      <label><b>Name: </b></label> {{aid.name}}
+    </div>
+    <hr />
+    <div>
+      <label><b>Start Date: </b></label> {{aid.startDate}}
+    </div>
+    <hr />
+    <div>
+      <label><b>House No: </b></label> {{aid.house.houseNo}}
+    </div>
+    <hr />
+    <div>
+      <label><b>Address: </b></label> {{aid.house.address}}
+    </div>
+    <hr />
+    <div>
+      <label><b>End Date: </b></label> {{aid.endDate}}
+    </div>
+    <hr />
+    <div>
+      <label><b>Cost Of Service: </b></label> {{aid.costOfService}}
+    </div>
+    <hr />
+
+    <div style="border-style: ridge; text-align: center;">
+      <p style="font-weight: bolder;">Payments</p>
+      <hr>
+      <div *ngIf="havePaid" class="panel-body" style="text-align: center;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Amount</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let payment of aid.payments" (click)="navigate(payment)">
+              <td>{{payment.paymentId}}</td>
+              <td>{{payment.amount}}</td>
+              <td>{{payment.comment}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="!havePaid" class="alert alert-warning">
+        You have not made any payments for this service yet!!!
+      </div>
+      <div id="addPaymentDiv">
+        <div *ngIf="addPaymentClicked" class="card">
+          <app-payment [aidId]=aid.aidId (closePaymentBox)="paymentSuccessfulHandler($event)"></app-payment>
+        </div>
+      </div>
+
+      <div *ngIf="showSpinner" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only" id="loading"></span>
+        </div>
+      </div>
+
+      <button (click)="addPayment()" [disabled]="addPaymentClicked" class="btn btn-info"
+        style="margin-left: 10px; margin-bottom: 5px;">Add
+        Payment</button>
+    </div>
+    <hr />
+    <div>
+      <label><b>Remaining Amt: </b></label> {{aid.remainingAmount}}
+    </div>
+    <hr />
+    <div>
+      <label><b>Complete: </b></label> {{aid.complete}}
+    </div>
+    <hr />
+    <!--</form>-->
+  </div>
+
+  <br>
+  <br>
+  <div style="text-align: center;">
+    <button (click)="updateAid(aid)" [disabled]="updateAidButtonDisabled || addPaymentClicked" class="btn btn-info"
+      style="margin-left: 10px; margin-top: 10px;">Update Aid</button>
+  </div>
+</div>

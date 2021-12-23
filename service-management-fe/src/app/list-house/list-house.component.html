@@ -1,0 +1,32 @@
+<div class="panel panel-primary" style="text-align: center;">
+  <div class="panel-heading">
+    <h2>Houses</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>House Id</th>
+          <th>House No</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let house of houses" (click)="navigate(house)">
+          <td> {{house.houseId}} </td>
+          <td> {{house.houseNo}} </td>
+          <td> {{house.address}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="showSpinner" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only" id="loading"></span>
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <button (click)="goToAddHouse('addHouse')" [disabled]="addHouseButtonDisabled" class="btn btn-success"
+      style="margin-top: 10px;">Add New House</button>
+  </div>
+</div>
