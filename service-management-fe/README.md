@@ -1,4 +1,5 @@
 # ServiceManagementFe
+This project also contains cordova dependencies and plugin used to convert this projwct into an android application.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
